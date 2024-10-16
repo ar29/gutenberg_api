@@ -97,7 +97,7 @@ import dj_database_url
 
 # Use Heroku Postgres
 DATABASES = {
-    'default': dj_database_url.config(default=os.getenv('DATABASE_URL'), conn_max_age=600)
+    'default': dj_database_url.config(default=os.getenv('DATABASE_URL', 'postgresql://postgres:ibwVeXhimKbzqzcapqrnJfVVgXNXNTrh@autorack.proxy.rlwy.net:33440/railway'), conn_max_age=600)
 }
 
 
