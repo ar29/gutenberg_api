@@ -6,6 +6,10 @@ on:
       - main
       - dev
 
+
+env:
+  DATABASE_URL: postgresql://postgres:ibwVeXhimKbzqzcapqrnJfVVgXNXNTrh@autorack.proxy.rlwy.net:33440/railway
+
 jobs:
   test:
     runs-on: ubuntu-latest
