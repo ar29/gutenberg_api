@@ -31,28 +31,28 @@ class AuthorsAdmin(admin.ModelAdmin):
     list_display = ('book', 'author_id')
 
     class Meta:
-        verbose_name_plural = "author_mappings"
+        verbose_name_plural = "authormappings"
 
 @admin.register(Bookshelves)
 class BookshelvesAdmin(admin.ModelAdmin):
     list_display = ('book', 'bookshelf')
 
     class Meta:
-        verbose_name_plural = "bookshelf_mappings"
+        verbose_name_plural = "bookshelfmappings"
 
 @admin.register(Languages)
 class LanguagesAdmin(admin.ModelAdmin):
     list_display = ('book', 'language')
 
     class Meta:
-        verbose_name_plural = "language_mappings"
+        verbose_name_plural = "languagemappings"
 
 @admin.register(Subjects)
 class SubjectsAdmin(admin.ModelAdmin):
     list_display = ('book', 'subject')
 
     class Meta:
-        verbose_name_plural = "subject_mappings"
+        verbose_name_plural = "subjectmappings"
 
 @admin.register(Bookshelf)
 class BookshelfAdmin(admin.ModelAdmin):
