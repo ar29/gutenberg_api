@@ -16,6 +16,7 @@ class Author(models.Model):
     class Meta:
         managed = False
         db_table = 'books_author'
+        verbose_name_plural = "authors"
 
 
 class Book(models.Model):
@@ -27,6 +28,7 @@ class Book(models.Model):
     class Meta:
         managed = False
         db_table = 'books_book'
+        verbose_name_plural = "books"
 
 
 class Authors(models.Model):
@@ -37,6 +39,7 @@ class Authors(models.Model):
         managed = False
         db_table = 'books_book_authors'
         unique_together = (('book', 'author'),)
+        verbose_name_plural = "author_mappings"
 
 
 class Bookshelves(models.Model):
@@ -47,6 +50,7 @@ class Bookshelves(models.Model):
         managed = False
         db_table = 'books_book_bookshelves'
         unique_together = (('book', 'bookshelf'),)
+        verbose_name_plural = "bookshelf_mappings"
 
 
 class Languages(models.Model):
@@ -57,6 +61,7 @@ class Languages(models.Model):
         managed = False
         db_table = 'books_book_languages'
         unique_together = (('book', 'language'),)
+        verbose_name_plural = "language_mappings"
 
 
 class Subjects(models.Model):
@@ -67,6 +72,7 @@ class Subjects(models.Model):
         managed = False
         db_table = 'books_book_subjects'
         unique_together = (('book', 'subject'),)
+        verbose_name_plural = "subject_mappings"
 
 
 class Bookshelf(models.Model):
@@ -75,6 +81,7 @@ class Bookshelf(models.Model):
     class Meta:
         managed = False
         db_table = 'books_bookshelf'
+        verbose_name_plural = "bookshelves"
 
 
 class Format(models.Model):
@@ -85,6 +92,7 @@ class Format(models.Model):
     class Meta:
         managed = False
         db_table = 'books_format'
+        verbose_name_plural = "formats"
 
 
 class Language(models.Model):
@@ -93,6 +101,8 @@ class Language(models.Model):
     class Meta:
         managed = False
         db_table = 'books_language'
+        verbose_name_plural = "languages"
+        
 
 
 class Subject(models.Model):
@@ -101,3 +111,4 @@ class Subject(models.Model):
     class Meta:
         managed = False
         db_table = 'books_subject'
+        verbose_name_plural = "subjects"
