@@ -10,7 +10,7 @@ class BookAPITestCase(TestCase):
 
     def setUp(self):
         # You can set up any necessary variables or configurations here.
-        self.base_url = 'http://127.0.0.1:8000'  # Adjust according to your local settings
+        self.base_url = 'https://web-production-2064f.up.railway.app'  # Adjust according to your local settings
 
     def test_get_books(self):
         """Test the GET method on the /api/books/ endpoint."""
