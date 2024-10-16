@@ -3,3 +3,7 @@ djangorestframework
 psycopg2-binary
 drf-yasg
 gunicorn
+django-environ
+django-filter
+python-decouple
+requests

@@ -3,9 +3,16 @@ from .models import Author, Book, Authors, Bookshelves, Languages, Subjects, Boo
 
 @admin.register(Author)
 class AuthorAdmin(admin.ModelAdmin):
-    list_display = ('name', 'birth_year', 'death_year')
-    search_fields = ('name',)
+    list_display = ('id', 'name', 'birth_year', 'death_year')  # Fields to display in the list view
+    search_fields = ('name',)  # Fields to search by
+    ordering = ('name',)  # Default ordering
 
+    # Optional: Define which fields to display in the detail view
+    fieldsets = (
+        (None, {
+            'fields': ('name', 'birth_year', 'death_year'),
+        }),
+    )
 @admin.register(Book)
 class BookAdmin(admin.ModelAdmin):
     list_display = ('title', 'gutenberg_id', 'download_count', 'media_type')

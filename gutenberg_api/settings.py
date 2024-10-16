@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+import os
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,13 +22,28 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-v*amwnntr!t8pqm!v9$wvost3r!myi0(ia2bnc579fba)losnf"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# Security key
+SECRET_KEY = config('SECRET_KEY')
 
-ALLOWED_HOSTS = []
+# Debug mode
+DEBUG = config('DJANGO_DEBUG', default=False, cast=bool)
 
+# Allowed hosts
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='').split(',')
+
+# Database configuration
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': config('DB_NAME'),
+        'USER': config('DB_USER'),
+        'PASSWORD': config('DB_PASSWORD'),
+        'HOST': config('DB_HOST', default='db'),
+        'PORT': config('DB_PORT', default=5432, cast=int),
+    }
+}
 
 # Application definition
 
@@ -37,10 +54,18 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    'django_filters',  # Django filters
     "rest_framework",  # Django REST framework
     "drf_yasg",  # For Swagger documentation
     "books",  # The books app
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_FILTER_BACKENDS': [
+        'django_filters.rest_framework.DjangoFilterBackend',  # Enable filter backend
+    ],
+}
+
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",

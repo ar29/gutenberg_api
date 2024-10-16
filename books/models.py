@@ -9,8 +9,8 @@ from django.db import models
 
 
 class Author(models.Model):
-    birth_year = models.SmallIntegerField(blank=True, null=True)
-    death_year = models.SmallIntegerField(blank=True, null=True)
+    birth_year = models.IntegerField()
+    death_year = models.IntegerField()
     name = models.CharField(max_length=128)
 
     class Meta:
