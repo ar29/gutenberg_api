@@ -100,6 +100,8 @@ DATABASES = {
     'default': dj_database_url.config(default=os.getenv('DATABASE_URL', 'postgresql://postgres:ibwVeXhimKbzqzcapqrnJfVVgXNXNTrh@autorack.proxy.rlwy.net:33440/railway'), conn_max_age=600)
 }
 
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
