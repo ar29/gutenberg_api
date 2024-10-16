@@ -25,13 +25,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # Security key
-SECRET_KEY = config('SECRET_KEY')
+SECRET_KEY = config('SECRET_KEY', default='your-dev-secret-key')
 
 # Debug mode
 DEBUG = config('DJANGO_DEBUG', default=False, cast=bool)
 
 # Allowed hosts
-ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='').split(',')
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='web-production-2064f.up.railway.app,localhost,127.0.0.1').split(',')
 
 # Database configuration
 import dj_database_url
