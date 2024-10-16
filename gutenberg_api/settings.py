@@ -33,13 +33,6 @@ DEBUG = config('DJANGO_DEBUG', default=False, cast=bool)
 # Allowed hosts
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='web-production-2064f.up.railway.app,localhost,127.0.0.1').split(',')
 
-# Database configuration
-import dj_database_url
-
-# Use Heroku Postgres
-DATABASES = {
-    'default': dj_database_url.config(conn_max_age=600)
-}
 
 # Application definition
 
@@ -99,15 +92,12 @@ WSGI_APPLICATION = "gutenberg_api.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
+# Database configuration
+import dj_database_url
+
+# Use Heroku Postgres
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'gutenberg_data',
-        'USER': 'postgres',
-        'PASSWORD': 'postgres',
-        'HOST': 'db',
-        'PORT': '5432',
-    }
+    'default': dj_database_url.config(conn_max_age=600)
 }
 
 
